@@ -36,7 +36,7 @@ public class Main {
             }
             if (args[i].equalsIgnoreCase("-otp")) {
                 isOTP = true;
-                if (args[i + 1].matches("^\\d{6}$")) {
+                if (i < args.length - 1 && args[i + 1].matches("^\\d{6}$")) {
                     otp = args[++i];
                 }
             }

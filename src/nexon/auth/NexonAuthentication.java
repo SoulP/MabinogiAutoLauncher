@@ -27,7 +27,10 @@ public class NexonAuthentication {
     private static final String  LOGIN_HOST_POST                    = LOGIN_HOST_BASE + "login/login";
     private static final String  REQUEST_VERIFICATION_TOKEN_PATTERN = "<input name=\"__RequestVerificationToken\" type=\"hidden\"";
     private static final String  VALUE_PATTERN                      = "value=\"";
-    private static final String  MESSAGE_ERROR_LOGIN                = "NEXON login fail";
+    private static final String  MESSAGE_ERROR_LOGIN                = "NEXON ERROR: login fail";
+    private static final String  MESSAGE_ERROR_SHOW_FISSHING_ALERT  = "NEXON ERROR: ShowFisshingAlert";
+    private static final String  MESSAGE_ERROR_OTP                  = "NEXON ERROR: OTP fail";
+    private static final String  MESSAGE_ERROR                      = "NEXON ERROR";
     private static CookieManager cookieManager                      = new CookieManager();
 
     static {
@@ -36,7 +39,7 @@ public class NexonAuthentication {
 
     /**
      * トークン取得
-     * 
+     *
      * @return 認証時に必要なトークン
      */
     public static String getRequestVerificationToken() {
@@ -73,7 +76,7 @@ public class NexonAuthentication {
 
     /**
      * 認証
-     * 
+     *
      * @param nexonId
      *            NEOXN_ID
      * @param password
@@ -86,7 +89,7 @@ public class NexonAuthentication {
 
     /**
      * 認証
-     * 
+     *
      * @param nexonId
      *            NEXON_ID
      * @param password
@@ -136,9 +139,11 @@ public class NexonAuthentication {
 
             if (ssoInfo.LoginFailure || !ssoInfo.LoginSuccess) { throw new IOException(MESSAGE_ERROR_LOGIN); }
 
-            if (ssoInfo.OtpFailure) { throw new IOException("NEXON OTP fail"); }
+            if (ssoInfo.OtpFailure) { throw new IOException(MESSAGE_ERROR_OTP); }
 
-            if (ssoInfo.ShowFisshingAlert) { throw new IOException("NEXON ERROR: ShowFisshingAlert"); }
+            if (ssoInfo.ShowFisshingAlert) { throw new IOException(MESSAGE_ERROR_SHOW_FISSHING_ALERT); }
+
+            if (ssoInfo.HasError) { throw new IOException(MESSAGE_ERROR); }
 
             List<HttpCookie> list = cookieManager.getCookieStore().getCookies();
 
