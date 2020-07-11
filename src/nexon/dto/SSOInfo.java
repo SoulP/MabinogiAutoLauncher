@@ -10,6 +10,8 @@ public class SSOInfo {
     public boolean RequirePasswordChange;
     public boolean IsMobileID;
     public boolean IsSimpleID;
+    public boolean IsNHNTransferID;
+    public String NHNTransferURL;
     public String  CaptchaUrl;
     public boolean LoginFailure;
     public boolean OtpFailure;
