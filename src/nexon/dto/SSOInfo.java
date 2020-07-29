@@ -15,4 +15,5 @@ public class SSOInfo {
     public String  CaptchaUrl;
     public boolean LoginFailure;
     public boolean OtpFailure;
+    public boolean IsOldOtp;
 }
