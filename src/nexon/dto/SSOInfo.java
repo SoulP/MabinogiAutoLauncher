@@ -16,4 +16,5 @@ public class SSOInfo {
     public boolean LoginFailure;
     public boolean OtpFailure;
     public boolean IsOldOtp;
+    public boolean IsSymantecOtp;
 }
