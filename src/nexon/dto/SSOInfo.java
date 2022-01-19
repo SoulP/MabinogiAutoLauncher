@@ -17,4 +17,5 @@ public class SSOInfo {
     public boolean OtpFailure;
     public boolean IsOldOtp;
     public boolean IsSymantecOtp;
+    public boolean IsHyphenMail;
 }
