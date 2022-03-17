@@ -18,4 +18,5 @@ public class SSOInfo {
     public boolean IsOldOtp;
     public boolean IsSymantecOtp;
     public boolean IsHyphenMail;
+    public String Jwt;
 }

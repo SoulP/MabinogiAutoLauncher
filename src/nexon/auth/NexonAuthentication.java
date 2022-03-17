@@ -21,8 +21,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import nexon.dto.SSOInfo;
 
 public class NexonAuthentication {
-    private static final String  LOGIN_HOST                         = "login.nexon.co.jp";
-    private static final String  LOGIN_HOST_BASE                    = "https://" + LOGIN_HOST + "/";
+    private static final String  LOGIN_HOST                         = "jp.nexon.com";
+    private static final String  LOGIN_HOST_BASE                    = "https://" + LOGIN_HOST + "/signin/";
     private static final String  LOGIN_HOST_GET                     = LOGIN_HOST_BASE + "login/";
     private static final String  LOGIN_HOST_POST                    = LOGIN_HOST_BASE + "login/login";
     private static final String  REQUEST_VERIFICATION_TOKEN_PATTERN = "<input name=\"__RequestVerificationToken\" type=\"hidden\"";
